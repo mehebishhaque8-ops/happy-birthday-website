@@ -1,0 +1,280 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    text-align: center;
+    z-index: 10;
+    animation: slideInDown 1s ease-out;
+}
+
+.title {
+    font-size: 4rem;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+    animation: bounce 2s infinite;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.cake {
+    position: relative;
+    width: 150px;
+    height: 120px;
+    margin: 40px auto;
+    animation: pulse 1.5s infinite;
+}
+
+.cake-layer {
+    width: 150px;
+    height: 80px;
+    background: linear-gradient(180deg, #ff69b4, #ff1493);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.cake-layer::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 20px;
+    background: repeating-linear-gradient(
+        90deg,
+        #ffeb3b,
+        #ffeb3b 10px,
+        #ffc107 10px,
+        #ffc107 20px
+    );
+    border-radius: 5px;
+}
+
+.candle {
+    position: absolute;
+    width: 8px;
+    height: 50px;
+    background: #ff6b6b;
+    left: 50%;
+    top: -40px;
+    transform: translateX(-50%);
+    border-radius: 4px;
+    box-shadow: inset -1px 0 3px rgba(0, 0, 0, 0.3);
+}
+
+.candle::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 25px;
+    background: radial-gradient(circle, #ffeb3b, #ff8a00);
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    animation: flicker 0.3s infinite;
+}
+
+.button {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 30px 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.button:active {
+    transform: scale(0.95);
+}
+
+.message {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    margin-top: 40px;
+    max-width: 500px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1.5s ease-out;
+}
+
+.message p {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Balloons */
+.balloon {
+    position: absolute;
+    width: 50px;
+    height: 70px;
+    border-radius: 50% 50% 50% 0;
+    opacity: 0.8;
+    animation: rise 4s infinite ease-in;
+}
+
+.balloon-1 {
+    background: #ff6b6b;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.balloon-2 {
+    background: #4ecdc4;
+    left: 25%;
+    animation-delay: 0.5s;
+}
+
+.balloon-3 {
+    background: #ffe66d;
+    left: 40%;
+    animation-delay: 1s;
+}
+
+.balloon-4 {
+    background: #95e1d3;
+    left: 55%;
+    animation-delay: 0.3s;
+}
+
+.balloon-5 {
+    background: #f38181;
+    left: 70%;
+    animation-delay: 0.8s;
+}
+
+/* Animations */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes rise {
+    0% {
+        bottom: -100px;
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        bottom: 100vh;
+        opacity: 0;
+    }
+}
+
+@keyframes flicker {
+    0%, 100% {
+        transform: translateX(-50%) scaleY(1);
+    }
+    50% {
+        transform: translateX(-50%) scaleY(0.8);
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#confetti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+    }
+
+    .button {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+
+    .message {
+        padding: 20px;
+    }
+
+    .message p {
+        font-size: 1rem;
+    }
+}
